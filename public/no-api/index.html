@@ -1,69 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-	<script src="//unpkg.com/alpinejs" defer></script>
-	<script src="taxi-queue.no-api.js"></script>
-	<link rel="stylesheet" href="../style.css">
+    <!-- Include Alpine.js -->
+    <script src="//unpkg.com/alpinejs" defer></script>
 
+    <!-- Include your Alpine.js data file -->
+    <script src="taxi-queue.no-api.js"></script>
+
+    <!-- Include your custom CSS -->
+    <link rel="stylesheet" href="../style.css">
 </head>
-<body x-data="TaxiQueue" >
-	<h1>Taxi queue app - no API</h1>
+<body x-data="TaxiQueue" x-init="init()">
+    <h1>Taxi queue app - no API</h1>
 
-	<div>
-		Version <strong x-text="version" ></strong>
-	</div>
+    <div>
+        Version <strong x-text="version"></strong>
+    </div>
 
-	<div class="sections" >
+    <div class="sections">
 
-		<div class="section" >
-			<h2>Passengers</h2>
-			<img src="../images/queue.png" alt="" width="100">
-			<img src="../images/queue.png" alt="" width="100">
-			<img src="../images/queue.png" alt="" width="100">
-			<span class="passenger_queue_count count" >0</span>
-			<button class="join_queue">Join</button>
-			<button class="leave_queue">Leave</button>
-	
-		</div>
-	
-		<div class="section" >
-			<h2>Taxis</h2>
-			<img src="../images/minivan.png" alt="" width="100">
-			<img src="../images/minivan.png" alt="" width="100">
-			<img src="../images/minivan.png" alt="" width="100">
-			<span class="taxi_queue_count count" >0</span>
-			<button class="join_taxi_queue">Join queue</button>
-		</div>
-	
-		<div class="section" >
-			<h2>Taxi departing</h2>
-			<img src="../images/arrow.png" alt="" width="100">
-			<img src="../images/arrow.png" alt="" width="100">
-			<img src="../images/arrow.png" alt="" width="100">
-			<img src="../images/minivan.png" alt="" width="100">
-			<!-- <span class="taxi_queue_count count" >0</span> -->
-			<button class="depart">Depart</button>
-		</div>
-	
+        <div class="section">
+            <h2>Passengers</h2>
+            <img src="../images/queue.png" alt="" width="100">
+            <img src="../images/queue.png" alt="" width="100">
+            <img src="../images/queue.png" alt="" width="100">
+            <span class="passenger_queue_count count" x-text="passengerQueueCount"></span>
+            <button class="join_queue" x-on:click="joinQueue()">Join</button>
+            <button class="leave_queue" x-on:click="leaveQueue()">Leave</button>
+        </div>
 
-	</div>
+        <div class="section">
+            <h2>Taxis</h2>
+            <img src="../images/minivan.png" alt="" width="100">
+            <img src="../images/minivan.png" alt="" width="100">
+            <img src="../images/minivan.png" alt="" width="100">
+            <span class="taxi_queue_count count" x-text="taxiQueueCount"></span>
+            <button class="join_taxi_queue" x-on:click="joinTaxiQueue()">Join queue</button>
+        </div>
 
-	<div>
-		<h4>Icons used</h4>
-		<ul>
-			<li>
-				<a href="https://www.flaticon.com/free-icons/minivan" title="minivan icons">Minivan icons created by Vitaly Gorbachev - Flaticon</a>
-			</li>
-			<li>
-				<a href="https://www.flaticon.com/free-icons/queue" title="queue icons">Queue icons created by Freepik - Flaticon</a>
-			</li>
-		</ul>
-	</div>
+        <div class="section">
+            <h2>Taxi departing</h2>
+            <img src="../images/arrow.png" alt="" width="100">
+            <img src="../images/arrow.png" alt="" width="100">
+            <img src="../images/arrow.png" alt="" width="100">
+            <img src="../images/minivan.png" alt="" width="100">
+            <!-- <span class="taxi_queue_count count" >0</span> -->
+            <button class="depart" x-on:click="taxiDepart()">Depart</button>
+        </div>
 
+    </div>
+
+    <div>
+        <h4>Icons used</h4>
+        <ul>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/minivan" title="minivan icons">Minivan icons created by Vitaly Gorbachev - Flaticon</a>
+            </li>
+            <li>
+                <a href="https://www.flaticon.com/free-icons/queue" title="queue icons">Queue icons created by Freepik - Flaticon</a>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        
+    </script>
 </body>
 </html>
